@@ -2,7 +2,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar.tsx";
 import { MyProvider } from "./components/Context.jsx";
 import React from "react";
-import type  {localFont} from 'next/font/local';
+import localFont from 'next/font/local';
 import type { Metadata } from "next";
 
 
