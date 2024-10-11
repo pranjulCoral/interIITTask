@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 import React,{useContext,useState} from 'react'
 import { MdOutlineSegment } from "react-icons/md";
@@ -8,7 +9,7 @@ import MobileNavbar from './MobileNavbar.tsx'
 
 const Navbar = () => {
     const [isClicked,setIsClicked] = useState<boolean>(false);
-    const {  isModalOpen , setIsModalOpen } = useContext(MyContext);
+    const {   setIsModalOpen } = useContext(MyContext);
   return (
     <>
     <div className="flex justify-between ">
@@ -28,7 +29,7 @@ const Navbar = () => {
     </div>
     <div id='hamburger-for-mobile-responsive' className=' lg:hidden mr-2 sm:mr-4 md:mr-8 cursor-pointer pt-2'>
 
-<div onClick={(e)=>
+<div onClick={()=>
  {
    setIsClicked(!isClicked)
    setIsModalOpen(true)}}>

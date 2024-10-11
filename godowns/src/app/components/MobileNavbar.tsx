@@ -17,11 +17,9 @@ const style = {
 
 
 export default function BasicModal() {
-  const {isModalOpen , setIsModalOpen , handleModalOpen} = useContext(MyContext)
-  const [open, setOpen] = React.useState(false);
+  const {isModalOpen  , handleModalOpen} = useContext(MyContext)
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+
   return (
     <div>
       <Modal
