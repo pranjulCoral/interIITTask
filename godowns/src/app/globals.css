@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  min-height: 100vh; /* Ensure the body covers at least the full viewport height */
+  background: linear-gradient(to bottom, rgb(218, 203, 175), rgb(238, 101, 124)) no-repeat;
+  background-size: cover; /* Ensure the gradient covers the entire body */
+  margin: 0; /* Remove any default margin */
+}
