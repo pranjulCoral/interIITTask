@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import clientPromise from '../lib/mongodb.ts';
-import {NextRequest , NextResponse} from 'next/server'
+import {NextRequest } from 'next/server'
 
 export const GET = async(req:NextRequest)=>{
     try {

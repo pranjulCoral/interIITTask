@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 "use client"
 import React, {useContext} from 'react'
@@ -11,7 +10,7 @@ const Page = () => {
     const {isSideBarOpen , setIsSideBarOpen} = useContext(MyContext);
    
   return (
-    <div className="flex w-screen h-screen bg-black">
+    <div className="flex w-screen h-screen">
         {/* Click to open Sidebar */}
         <div className=' cursor-pointer w-2/5 md:w-1/5 h-full' onClick={()=>setIsSideBarOpen(true)}>
         {/* <MdOutlineSegment color='black' size='40px' /> */}

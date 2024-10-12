@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -8,7 +10,7 @@ import {ClipLoader} from 'react-spinners'
 
 const RecursiveComponent = ({ item }: any) => {
   const [isOpen, setIsOpen] = useState(false);
-  const {fetchedItem , setFetchedItem , isLoading ,setIsLoading} = useContext(MyContext);
+  const { setFetchedItem ,setIsLoading} = useContext(MyContext);
 
   return (
     <div className=" overscroll-y-auto">
@@ -36,7 +38,7 @@ const RecursiveComponent = ({ item }: any) => {
       {isOpen && item.items && item.items.length > 0 && (
         <div className="ml-4">
           {item.items.map((subItem: any, index: any) => (
-            <div onClick={
+            <div key={index} onClick={
               async()=>{
                 try{
                   setIsLoading(true);

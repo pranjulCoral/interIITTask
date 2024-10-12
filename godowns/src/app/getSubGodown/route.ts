@@ -34,7 +34,6 @@ export const GET = async()=>{
     const buildHierarchy = (data: any[]) => {
         const map:any = {};
         const roots: any[] = [];
-        const itemslist:any[]=[];
       
         data.forEach((godown: { id: string | number; }) => {
           map[godown.id] = { ...godown, children: [] ,items:[] };
