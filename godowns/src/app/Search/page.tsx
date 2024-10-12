@@ -22,7 +22,7 @@ const Page = () => {
            toast.success("Search Successfull")
 
          }
-         catch(error){
+         catch(error:any){
             setSearchLoading(false);
             toast.error(error.response.data)
          }
