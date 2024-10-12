@@ -9,6 +9,8 @@
       <div className="flex justify-center text-xl md:text-3xl font-bold font-mono mt-2 underline underline-offset-2">
         Items in Godown
 
+
+
       </div>
         
 
@@ -16,7 +18,7 @@
         <div className=" ml-4 mr-4  ">
         <div className='bg-white bg-opacity-70  rounded-md shadow-xl shadow-black mt-4  '>
           <div className='  p-2 flex justify-center  space-x-12 ' >
-            <img width={350} height={350} src={fetchedItem.image_url} className=' rounded-md border border-lightPink shadow-md shadow-black'/>     
+            <img width={300} height={300} src={fetchedItem.image_url} className=' rounded-md border border-lightPink shadow-md shadow-black'/>     
           </div>
           <div className=' border border-b border-black ml-4  mr-4 mt-2'/>
        
