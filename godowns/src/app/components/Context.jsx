@@ -12,16 +12,25 @@ export const MyProvider = ({children})=>{
     const responsibilityView = useRef(null);
     const incentiveView = useRef(null);
     const contactView = useRef(null);
+    const [isSideBarOpen , setIsSideBarOpen] = useState(true);
+  const [isOpenIndex , setIsOpenIndex] = useState(null);
+  const [fetchedItem, setFetchedItem] = useState(null);
+  const [searchResult ,setSearchResult] = useState([]);
+  const [searchLoading , setSearchLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
     const FAQView = useRef(null);
     const [isModalOpen , setIsModalOpen] = useState(false);
     const handleModalClose = ()=>{
         setIsModalOpen(!isModalOpen)
     }
+    
 
 
       
     const value = {
-        homeView , aboutView , whyCAView , responsibilityView , incentiveView , FAQView , contactView , isModalOpen , handleModalClose ,setIsModalOpen 
+        isSideBarOpen,setIsSideBarOpen,homeView ,fetchedItem ,isLoading,setIsLoading, setFetchedItem, aboutView , whyCAView , responsibilityView , incentiveView , FAQView , contactView , isModalOpen , handleModalClose ,setIsModalOpen,isOpenIndex , setIsOpenIndex,
+        searchLoading, setSearchLoading , searchResult , setSearchResult
 
     }
 

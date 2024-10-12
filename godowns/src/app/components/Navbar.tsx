@@ -5,6 +5,7 @@ import { MdOutlineSegment } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import {MyContext} from './Context.jsx'
 import MobileNavbar from './MobileNavbar.tsx'
+import Link from 'next/link';
 
 
 const Navbar = () => {
@@ -20,9 +21,9 @@ const Navbar = () => {
     </div>
     {/* Other Pages Login/Signup , Home, Search Page,SideBar + ItemsShowingPage  */}
     <div className=' hidden cursor-pointer justify-evenly space-x-12 mr-4 p-4 font-semibold font-mono lg:flex '>
-        <h1>Home</h1>
-        <h1>Items</h1>
-        <h1>Search</h1>
+        <Link href='/MainPage'>Home</Link>
+        <Link href="/SideBar">Items</Link>
+        <Link href='/Search'>Search</Link>
         <h1 className=' border rounded-md pl-2 pr-2 bg-white cursor-pointer text-pink-600 border-pink-600'>Signup</h1>
 
 
