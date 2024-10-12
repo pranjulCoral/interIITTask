@@ -5,12 +5,10 @@
 import { MongoClient } from 'mongodb';
 
 const uri = "mongodb+srv://PranjulShukla:beena55@cluster0.qicx6ls.mongodb.net/interIITdb" // Make sure to set your MongoDB URI in .env
-let client: MongoClient;
-let clientPromise: Promise<MongoClient>;
+ 
 
-
-  client = new MongoClient(uri);
-  clientPromise = client.connect();
+ const client:MongoClient = new MongoClient(uri);
+const clientPromise: Promise<MongoClient> = client.connect();
 
 
 export default clientPromise;

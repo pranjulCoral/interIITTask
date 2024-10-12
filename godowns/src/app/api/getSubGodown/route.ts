@@ -4,7 +4,7 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions  */
 
 
-import clientPromise from '../lib/mongodb.ts';
+import clientPromise from '../../lib/mongodb.ts';
 
 
 // Example of a godown data
