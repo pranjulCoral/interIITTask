@@ -1,16 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client"
-import React, { useState,useContext} from 'react'
-import {MdOutlineSegment} from 'react-icons/md'
+import React, {useContext} from 'react'
 import SideBarModal from '../components/SideBarModal.tsx';
 import { MyContext } from '../components/Context.jsx';
 import FetchItems from '../components/FetchItems.tsx';
 
-const page = () => {
+const Page = () => {
     
     const {isSideBarOpen , setIsSideBarOpen} = useContext(MyContext);
    
   return (
-    <div className="flex w-screen h-screen">
+    <div className="flex w-screen h-screen bg-black">
         {/* Click to open Sidebar */}
         <div className=' cursor-pointer w-2/5 md:w-1/5 h-full' onClick={()=>setIsSideBarOpen(true)}>
         {/* <MdOutlineSegment color='black' size='40px' /> */}
@@ -26,4 +27,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

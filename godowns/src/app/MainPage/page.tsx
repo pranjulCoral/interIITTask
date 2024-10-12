@@ -5,7 +5,7 @@ import Link from 'next/link'
 const page = () => {
   return (
     <div>
-        <div className=' w-full h-[90vh] flex flex-col font-extrabold justify-center items-center'>
+        <div className=' w-full h-screen flex flex-col font-extrabold justify-center items-center'>
         {/* Heading */}
         <div className='-mt-32 text-5xl bg-gradient-to-r from-pink-600 via-zinc-600 to-zinc-800 bg-clip-text text-transparent animate-gradient-move animate-slide-in-left '>
             Godown

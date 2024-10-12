@@ -1,10 +1,9 @@
  import React, { useContext } from 'react'
  import { MyContext } from './Context.jsx';
- import Image from 'next/image'
  import {ClipLoader} from 'react-spinners'
  
  const FetchItems = () => {
-  const {fetchedItem , setFetchedItem , isLoading} = useContext(MyContext);
+  const {fetchedItem ,   isLoading} = useContext(MyContext);
    return (
      <>{!isLoading?<div className=' w-full h-full'>
       <div className="flex justify-center text-xl md:text-3xl font-bold font-mono mt-2 underline underline-offset-2">

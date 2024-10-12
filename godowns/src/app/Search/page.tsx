@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client"
 import React, { useContext, useState } from 'react'
 import {MdSearch} from 'react-icons/md'
@@ -8,7 +10,7 @@ import {ClipLoader} from 'react-spinners'
 import toast , {Toaster} from 'react-hot-toast'
 import Searched from '../components/Searched.tsx'
 
-const page = () => {
+const Page = () => {
     const [query,setQuery] = useState("");
     const {searchResult , setSearchResult , searchLoading , setSearchLoading} = useContext(MyContext);
     const getSearchResults=async()=>{
@@ -69,4 +71,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

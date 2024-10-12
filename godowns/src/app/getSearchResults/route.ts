@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import clientPromise from '../lib/mongodb.ts';
 import {NextRequest , NextResponse} from 'next/server'
 
-export const GET = async(req:NextRequest,res:NextResponse)=>{
+export const GET = async(req:NextRequest)=>{
     try {
 
         const url = new URL(req.url);

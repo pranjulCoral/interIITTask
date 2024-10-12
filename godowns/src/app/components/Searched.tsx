@@ -1,5 +1,6 @@
-import React, { useContext, useState } from 'react'
-const Searched = ({item,index}:{item:any,index:number}) => {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react'
+const Searched = ({item}:{item:any,index:number}) => {
   return (
     <div className='flex justify-center ' >
         <div className=' bg-white w-1/2 mt-6  p-4 rounded-md shadow-xl shadow-black'>

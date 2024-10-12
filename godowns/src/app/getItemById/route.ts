@@ -1,16 +1,15 @@
 
-import {useRouter} from 'next/router'
 import {NextRequest} from 'next/server'
 import clientPromise from '../lib/mongodb.ts';
 
-export const GET = async(req:NextRequest,res:Response)=>{
+export const GET = async(req:NextRequest)=>{
 
     
 
     try {
         const url = new URL(req.url);
         const id = url.searchParams.get('id');
-        
+
 
         const client = await clientPromise;
 

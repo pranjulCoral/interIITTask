@@ -1,4 +1,5 @@
 // deno-lint-ignore-file
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import clientPromise from '../lib/mongodb.ts';
 
 
@@ -16,7 +17,7 @@ import clientPromise from '../lib/mongodb.ts';
 //         ]
 //     }
 // ]
-export const GET = async(req:Request,res:Response)=>{
+export const GET = async()=>{
     try{
     const client = await clientPromise;
 
