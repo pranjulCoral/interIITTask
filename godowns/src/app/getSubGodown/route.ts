@@ -68,7 +68,7 @@ export const GET = async()=>{
 
      
     }
-    catch(error){
+    catch(error:any){
        return new Response(
         JSON.stringify({error:error.message}),
         {

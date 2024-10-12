@@ -45,7 +45,7 @@ const RecursiveComponent = ({ item }: any) => {
                   const response = await axios.get(`${url}getItemById?id=${subItem.item_id}`);
                   setFetchedItem(response.data);
                 }
-                catch(error){
+                catch(error:any){
                   setIsLoading(false);
                   console.log(error);
                 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {NextRequest} from 'next/server'
 import clientPromise from '../lib/mongodb.ts';
@@ -29,7 +30,7 @@ export const GET = async(req:NextRequest)=>{
                 status:200
             }
         )
-    } catch (error) {
+    } catch (error:any) {
         return new Response(
             JSON.stringify(error.message),
             {

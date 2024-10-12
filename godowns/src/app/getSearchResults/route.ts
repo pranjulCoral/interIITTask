@@ -36,7 +36,7 @@ export const GET = async(req:NextRequest)=>{
         
 
         
-    } catch (error) {
+    } catch (error:any) {
         return new Response(JSON.stringify(error.message)
     ,
     {
