@@ -13,7 +13,7 @@ const RecursiveComponent = ({ item }: any) => {
   const { setFetchedItem ,setIsLoading} = useContext(MyContext);
 
   return (
-    <div className=" overscroll-y-auto">
+    <div className=" ">
       {/* Parent Item */}
       <div
         onClick={() => setIsOpen(!isOpen)}
@@ -93,7 +93,7 @@ export default function SideBarModal() {
   }, []);
   return (
     <div className="bg-slate-800 h-screen overflow-y-scroll mb-2">
-     {!isLoading? <div className="text-white overflow-y-scroll ">
+     {!isLoading? <div className="text-white  ">
         {godownData.map((item: any, index: any) => (
           <React.Fragment key={index}>
             <RecursiveComponent item={item} />

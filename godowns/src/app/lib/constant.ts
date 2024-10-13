@@ -1,1 +1,1 @@
-export const url = "https://inter-iit-task-psi.vercel.app/api/"
+export const url = "http://localhost:3000/api/"

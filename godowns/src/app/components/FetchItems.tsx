@@ -6,7 +6,7 @@
   const {fetchedItem ,   isLoading} = useContext(MyContext);
    return (
      <>{!isLoading?<div className=' w-full h-full'>
-      <div className="flex justify-center text-xl md:text-3xl font-bold overflow-y-scroll font-mono mt-2 underline underline-offset-2">
+      <div className="flex justify-center text-xl md:text-3xl font-bold font-mono mt-2 underline underline-offset-2">
         Items in Godown
 
 
@@ -15,7 +15,7 @@
         
 
         {fetchedItem?
-        <div className=" ml-4 mr-4 overflow-y-scroll  ">
+        <div className=" ml-4 mr-4 mb-4  ">
         <div className='bg-white bg-opacity-70  rounded-md shadow-xl shadow-black mt-4  '>
           <div className='  p-2 flex justify-center  space-x-12 ' >
             <img width={300} height={300} src={fetchedItem.image_url} className=' rounded-md border border-lightPink shadow-md shadow-black'/>     

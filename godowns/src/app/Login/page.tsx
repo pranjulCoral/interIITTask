@@ -11,6 +11,7 @@ import {ClipLoader} from 'react-spinners'
 import Link from  'next/link'
 import { MyContext } from '../components/Context.jsx';
 import MainPage from '../MainPage/page.tsx'
+import {z} from 'zod'
 
 const Page = () => {
     const [email,setEmail] = useState("")
@@ -18,11 +19,24 @@ const Page = () => {
     const [isLoading , setIsLoading] = useState(false);
     const {setSession ,session} = useContext(MyContext);
 
-    
+    const formSchema = z.object({
+        email: z.string().email("Invalid email address"),
+        age: z.number().int().positive().optional(), 
+      });
     
 
 
     const handleClick=async()=>{
+        const formData = { name, email, password }
+        const result = formSchema.safeParse(formData)
+
+        if (!result.success) {
+            // Show validation errors using toast
+            const errors = result.error.flatten().fieldErrors
+            if (errors.email) toast.error(errors.email[0])
+            if (errors.password) toast.error(errors.password[0])
+            return
+        }
         try {
             setIsLoading(true);
              const response = await axios.post(`${url}loginUser`,{
