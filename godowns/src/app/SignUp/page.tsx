@@ -25,7 +25,7 @@ const Page = () => {
     const formSchema = z.object({
         name: z.string().min(1, "Name is required"), // Must be a non-empty string
         email: z.string().email("Invalid email address"),
-        age: z.number().int().positive().optional(), 
+        password: z.string().min(1,"password is required"), 
       });
 
 
