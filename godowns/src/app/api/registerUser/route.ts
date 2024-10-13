@@ -4,7 +4,7 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions  */
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import clientPromise from "../../lib/mongodb.ts";
 import process from "node:process";
 
