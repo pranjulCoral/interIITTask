@@ -49,7 +49,7 @@ export const POST = async (req: NextRequest) => {
 
         const token = await jwt.sign(
             { email: user.email },
-            process.env.JWT_SECRET,
+            process.env.JWT_SECRET || "thisismysecret",
             { expiresIn: "1d" },
         );
 

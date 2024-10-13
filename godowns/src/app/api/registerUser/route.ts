@@ -36,7 +36,7 @@ export const POST = async (req: NextRequest) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const token = await jwt.sign({ email: email }, process.env.JWT_SECRET, {
+        const token = await jwt.sign({ email: email }, process.env.JWT_SECRET || "thisismysecret", {
             expiresIn: "1d",
         });
 
