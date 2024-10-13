@@ -24,7 +24,7 @@ const Navbar = () => {
         <Link href='/MainPage'>Home</Link>
         <Link href="/SideBar">Items</Link>
         <Link href='/Search'>Search</Link>
-        <h1 className=' border rounded-md pl-2 pr-2 bg-white cursor-pointer text-pink-600 border-pink-600'>Signup</h1>
+        <Link href='/SignUp' className=' border rounded-md pl-2 pr-2 bg-white cursor-pointer text-pink-600 border-pink-600 '>Signup</Link>
 
 
     </div>

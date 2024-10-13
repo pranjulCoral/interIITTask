@@ -1,50 +1,36 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import clientPromise from '../../lib/mongodb.ts';
-import {NextRequest } from 'next/server'
+import clientPromise from "../../lib/mongodb.ts";
+import { NextRequest } from "next/server";
 
-export const GET = async(req:NextRequest)=>{
+export const GET = async (req: NextRequest) => {
     try {
-
         const url = new URL(req.url);
-        const query = url.searchParams.get('query');
+        const query = url.searchParams.get("query");
 
-        if(!query || query.trim() === ""){
-            return new Response(JSON.stringify("Query cannot be empty")
-            ,
-            {
-                headers:{"Content-type":"application/json"},
-                status:400
-            }
-        )
+        if (!query || query.trim() === "") {
+            return new Response(JSON.stringify("Query cannot be empty"), {
+                headers: { "Content-type": "application/json" },
+                status: 400,
+            });
         }
         const client = await clientPromise;
 
-        const database = client.db('interIITdb'); 
+        const database = client.db("interIITdb");
 
-        const collection2 = database.collection('items');
+        const collection2 = database.collection("items");
 
         const searchResults = await collection2.find({
-            name:{$regex:query , $options:'i'}
+            name: { $regex: query, $options: "i" },
         }).limit(10).toArray();
 
         return new Response(
             JSON.stringify(searchResults),
-            {headers:{"Content-type":"application/json"},
-        status:200}
-            
-        )
-        
-
-        
-    } catch (error:any) {
-        return new Response(JSON.stringify(error.message)
-    ,
-    {
-        headers:{"Content-type":"application/json"},
-        status:500
+            { headers: { "Content-type": "application/json" }, status: 200 },
+        );
+    } catch (error: any) {
+        return new Response(JSON.stringify(error.message), {
+            headers: { "Content-type": "application/json" },
+            status: 500,
+        });
     }
-)
-        
-    }
-
-}
+};

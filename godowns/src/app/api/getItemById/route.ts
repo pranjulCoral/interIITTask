@@ -1,45 +1,37 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import {NextRequest} from 'next/server'
-import clientPromise from '../../lib/mongodb.ts';
+import { NextRequest } from "next/server";
+import clientPromise from "../../lib/mongodb.ts";
 
-export const GET = async(req:NextRequest)=>{
-
-    
-
+export const GET = async (req: NextRequest) => {
     try {
         const url = new URL(req.url);
-        const id = url.searchParams.get('id');
-
+        const id = url.searchParams.get("id");
 
         const client = await clientPromise;
 
-    const database = client.db('interIITdb'); 
-  
-    const collection2 = database.collection('items');
+        const database = client.db("interIITdb");
 
-    const data = await  collection2.findOne({item_id:id});
+        const collection2 = database.collection("items");
 
-    console.log(data)
+        const data = await collection2.findOne({ item_id: id });
 
-
+        console.log(data);
 
         return new Response(
-            JSON.stringify(data),{
-                headers:{"Content-type":"application/json"},
-                status:200
-            }
-        )
-    } catch (error:any) {
+            JSON.stringify(data),
+            {
+                headers: { "Content-type": "application/json" },
+                status: 200,
+            },
+        );
+    } catch (error: any) {
         return new Response(
             JSON.stringify(error.message),
             {
-                headers:{"Content-type":"application/json"},
-                status:500
-            }
-        )
-        
+                headers: { "Content-type": "application/json" },
+                status: 500,
+            },
+        );
     }
-
-
-}
+};
