@@ -1,7 +1,9 @@
-import  React , {useContext} from 'react';
+import  React , {useContext , useEffect} from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { MyContext } from './Context.jsx';
+import Link from 'next/link'
+
 
 
 const style = {
@@ -17,7 +19,17 @@ const style = {
 
 
 export default function BasicModal() {
-  const {isModalOpen  , handleModalOpen} = useContext(MyContext)
+  const {isModalOpen  , handleModalOpen} = useContext(MyContext);
+  const { session,setSession } = useContext(MyContext);
+  const logoutUser=()=>{
+    localStorage.removeItem("token");
+    setSession(null);
+    
+  }
+  useEffect(()=>{
+    const token = localStorage.getItem("token")?localStorage.getItem("token"):null;
+    setSession(token);
+  },[session])
 
 
   return (
@@ -34,20 +46,21 @@ export default function BasicModal() {
           <div id='main-components' className=' cursor-pointer mt-12 flex flex-col h-full font-bold text-md'>
             <div className=' space-y-6'>
           <ul>
-          <div    className='  text-black '>HOME</div>
+          <Link href="/MainPage"    className='  text-black '>HOME</Link>
     <div  className=" border border-black border-b opacity-50 mt-2"  />
 
           </ul>
-       <ul> <div   className=' text-black '>ITEMS</div>
+       <ul> <Link href="/SideBar"   className=' text-black '>ITEMS</Link>
     <div  className=" border border-black border-b opacity-50 mt-2"  />
 
        </ul>
-        <ul><div   className=' text-black '>SEARCH</div>
+        <ul><Link href='/Search'  className=' text-black '>SEARCH</Link>
     <div  className=" border border-black border-b opacity-50 mt-2"  />
 
         </ul>
 
-       <ul><div    className=' text-black '>SIGNUP</div>
+       <ul>   {session?<button onClick={logoutUser} className=' border rounded-md pl-2 pr-2 bg-white cursor-pointer text-pink-600 border-pink-600 ' >Logout</button>:<Link  href={'/SignUp'} className=' border rounded-md pl-2 pr-2 bg-white cursor-pointer text-pink-600 border-pink-600 '>Signup</Link>} 
+
     <div  className=" border border-black border-b opacity-50 mt-2"  />
 
        </ul> 
