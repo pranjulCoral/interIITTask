@@ -8,9 +8,9 @@ import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "../../lib/mongodb.ts";
 import process from "node:process";
 
-export const POST = async (req: NextRequest, res: NextResponse) => {
+export const POST = async (req: NextRequest) => {
     try {
-        const { username, email, password } = await req.json();
+        const { email, password } = await req.json();
         if (!email || !password) {
             return new Response(JSON.stringify({message:"All fields are required"}), {
                 headers: { "Content-type": "application/json" },

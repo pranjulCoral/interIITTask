@@ -1,3 +1,7 @@
+// deno-lint-ignore-file
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+/* eslint-disable @typescript-eslint/no-unused-expressions  */
 "use client"
 import React,{useContext, useState} from 'react'
 import toast , {Toaster} from 'react-hot-toast'
@@ -8,11 +12,10 @@ import Link from  'next/link'
 import { MyContext } from '../components/Context.jsx';
 
 const Page = () => {
-    const [name,setName] = useState("")
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const [isLoading , setIsLoading] = useState(false);
-    const {session,setSession} = useContext(MyContext);
+    const {setSession} = useContext(MyContext);
 
     
     
@@ -63,7 +66,7 @@ const Page = () => {
                 <button onClick={handleClick} className=" bg-black p-2 text-white font-mono rounded-md w-40">{isLoading?<ClipLoader size={10} color='white'/>:"Login"}</button>
                </div>
                <div className="flex justify-center mt-2">
-                 <p className="text-sm ">Haven't Registered Yet? <Link href='/SignUp' className="text-blue-600 cursor-pointer">Click Here</Link></p>
+                 <p className="text-sm ">Haven&apos;t Registered Yet? <Link href='/SignUp' className="text-blue-600 cursor-pointer">Click Here</Link></p>
                </div>
 
             </div>

@@ -1,6 +1,6 @@
 
 "use client"
-import React, {useContext ,useEffect, useState} from 'react'
+import React, {useContext ,useEffect} from 'react'
 import SideBarModal from '../components/SideBarModal.tsx';
 import { MyContext } from '../components/Context.jsx';
 import FetchItems from '../components/FetchItems.tsx';

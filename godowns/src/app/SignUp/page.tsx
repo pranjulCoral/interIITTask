@@ -1,3 +1,7 @@
+// deno-lint-ignore-file
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+/* eslint-disable @typescript-eslint/no-unused-expressions  */
 "use client"
 import React,{useState} from 'react'
 import toast , {Toaster} from 'react-hot-toast'
