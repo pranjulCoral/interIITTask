@@ -61,7 +61,7 @@ const Page = () => {
 
         } catch (error:any) {
             setIsLoading(false);
-            toast.error(error.response.data)
+            toast.error(error.response.data.message)
         }
         finally{
             setIsLoading(false);
