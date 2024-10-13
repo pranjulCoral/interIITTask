@@ -4,6 +4,8 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions  */
 
 import clientPromise from "../../lib/mongodb.ts";
+import {NextRequest} from 'next/server'
+import corsHeaders from "../../lib/corsHeaders.ts";
 
 // Example of a godown data
 // const godown = [
@@ -19,7 +21,10 @@ import clientPromise from "../../lib/mongodb.ts";
 //         ]
 //     }
 // ]
-export const GET = async () => {
+export const GET = async (req:NextRequest) => {
+  if (req.method === "OPTIONS") {
+    return new Response("ok", { headers: corsHeaders });
+  }
   try {
     const client = await clientPromise;
 
@@ -58,14 +63,15 @@ export const GET = async () => {
     return new Response(
       JSON.stringify(tree),
       {
-        headers: { "Content-type": "application/json" },
+        headers: { "Content-type": "application/json" ,...corsHeaders},
+        status:200
       },
     );
   } catch (error: any) {
     return new Response(
       JSON.stringify({ error: error.message }),
       {
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json",...corsHeaders },
         status: 500,
       },
     );

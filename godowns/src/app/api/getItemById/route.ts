@@ -2,8 +2,12 @@
 
 import { NextRequest } from "next/server";
 import clientPromise from "../../lib/mongodb.ts";
+import corsHeaders from "../../lib/corsHeaders.ts";
 
 export const GET = async (req: NextRequest) => {
+    if (req.method === "OPTIONS") {
+        return new Response("ok", { headers: corsHeaders });
+      }
     try {
         const url = new URL(req.url);
         const id = url.searchParams.get("id");
@@ -21,7 +25,7 @@ export const GET = async (req: NextRequest) => {
         return new Response(
             JSON.stringify(data),
             {
-                headers: { "Content-type": "application/json" },
+                headers: { "Content-type": "application/json" ,...corsHeaders },
                 status: 200,
             },
         );
@@ -29,7 +33,7 @@ export const GET = async (req: NextRequest) => {
         return new Response(
             JSON.stringify(error.message),
             {
-                headers: { "Content-type": "application/json" },
+                headers: { "Content-type": "application/json" ,...corsHeaders },
                 status: 500,
             },
         );

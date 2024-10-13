@@ -7,13 +7,17 @@ import bcrypt from "bcrypt";
 import { NextRequest } from "next/server";
 import clientPromise from "../../lib/mongodb.ts";
 import process from "node:process";
+import corsHeaders from "../../lib/corsHeaders.ts";
 
 export const POST = async (req: NextRequest) => {
+    if (req.method === "OPTIONS") {
+        return new Response("ok", { headers: corsHeaders });
+      }
     try {
         const { username, email, password } = await req.json();
         if (!username || !email || !password) {
             return new Response(JSON.stringify({message:"All fields are required"}), {
-                headers: { "Content-type": "application/json" },
+                headers: { "Content-type": "application/json" , ...corsHeaders },
                 status: 400,
             });
         }
@@ -30,7 +34,7 @@ export const POST = async (req: NextRequest) => {
 
         if (user) {
             return new Response(JSON.stringify({message:"User Already Exists"}), {
-                headers: { "Content-type": "application/json" },
+                headers: { "Content-type": "application/json" , ...corsHeaders },
                 status: 400,
             });
         }
@@ -54,14 +58,14 @@ export const POST = async (req: NextRequest) => {
                     token: token,
                 },
             ),
-            { headers: { "Content-type": "application/json" }, status: 200 },
+            { headers: { "Content-type": "application/json", ...corsHeaders}, status: 200 },
         );
     } catch (error: any) {
         return new Response(
             JSON.stringify(
                 { message: error.message },
             ),
-            { headers: { "Content-type": "application/json" }, status: 400 },
+            { headers: { "Content-type": "application/json" , ...corsHeaders }, status: 500 },
         );
     }
 };
