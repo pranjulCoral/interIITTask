@@ -16,7 +16,7 @@ const Page = () => {
         setSession(token);
       
 
-    },[]);
+    },[session]);
     
    
   return (

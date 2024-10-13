@@ -3,18 +3,22 @@
 
 /* eslint-disable @typescript-eslint/no-unused-expressions  */
 "use client"
-import React,{useState} from 'react'
+import React,{useState ,useContext} from 'react'
 import toast , {Toaster} from 'react-hot-toast'
 import {url} from '../lib/constant.ts'
 import axios from 'axios'
 import {ClipLoader} from 'react-spinners'
 import Link from 'next/link'
+import { MyContext } from '../components/Context.jsx'
+import MainPage from '../MainPage/page.tsx'
 
 const Page = () => {
     const [name,setName] = useState("")
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const [isLoading , setIsLoading] = useState(false);
+    const {setSession , session} = useContext(MyContext);
+
 
     const handleClick=async()=>{
         try {
@@ -29,11 +33,14 @@ const Page = () => {
                 }
              });
 
+             localStorage.setItem("token",response.data.token);
+             setSession(response.data.token);
+
              toast.success(response.data.message);;
 
         } catch (error:any) {
             setIsLoading(false);
-            toast.error(error.response.data.message)
+            toast.error(error.response.data)
         }
         finally{
             setIsLoading(false);
@@ -41,6 +48,8 @@ const Page = () => {
     }
 
   return (
+    <>
+    {!session?
     <div>
         <Toaster/>
         <div className=' flex justify-center'>
@@ -70,7 +79,8 @@ const Page = () => {
 
         </div>
 
-    </div>
+    </div>:<MainPage/>}
+    </>
   )
 }
 

@@ -12,7 +12,7 @@ export const POST = async (req: NextRequest) => {
     try {
         const { username, email, password } = await req.json();
         if (!username || !email || !password) {
-            return new Response(JSON.stringify("All fields are required"), {
+            return new Response(JSON.stringify({message:"All fields are required"}), {
                 headers: { "Content-type": "application/json" },
                 status: 400,
             });
@@ -29,7 +29,7 @@ export const POST = async (req: NextRequest) => {
         });
 
         if (user) {
-            return new Response(JSON.stringify("User Already Exists"), {
+            return new Response(JSON.stringify({message:"User Already Exists"}), {
                 headers: { "Content-type": "application/json" },
                 status: 400,
             });

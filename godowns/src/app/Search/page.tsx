@@ -20,7 +20,7 @@ const Page = () => {
         setSession(token);
       
 
-    },[]);
+    },[session]);
     const {searchResult , setSearchResult , searchLoading , setSearchLoading} = useContext(MyContext);
     const getSearchResults=async()=>{
          try{
