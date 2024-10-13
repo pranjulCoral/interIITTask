@@ -25,7 +25,7 @@ export async function middleware (req: NextRequest) {
         }
 
         // Verify the token
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || "thisismysecret");
         
         // Connect to MongoDB and verify the user
         const client = await clientPromise;
