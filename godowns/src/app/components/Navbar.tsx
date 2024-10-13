@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
-import React,{useContext,useState} from 'react'
+import React,{useContext,useState,useEffect} from 'react'
 import { MdOutlineSegment } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import {MyContext} from './Context.jsx'
@@ -10,7 +10,16 @@ import Link from 'next/link';
 
 const Navbar = () => {
     const [isClicked,setIsClicked] = useState<boolean>(false);
-    const {   setIsModalOpen } = useContext(MyContext);
+    const {   setIsModalOpen ,session,setSession } = useContext(MyContext);
+    const logoutUser=()=>{
+      localStorage.removeItem("token");
+      setSession(null);
+      
+    }
+    useEffect(()=>{
+      const token = localStorage.getItem("token")?localStorage.getItem("token"):null;
+      setSession(token);
+    },[session])
   return (
     <>
     <div className="flex justify-between ">
@@ -24,7 +33,7 @@ const Navbar = () => {
         <Link href='/MainPage'>Home</Link>
         <Link href="/SideBar">Items</Link>
         <Link href='/Search'>Search</Link>
-        <Link href='/SignUp' className=' border rounded-md pl-2 pr-2 bg-white cursor-pointer text-pink-600 border-pink-600 '>Signup</Link>
+       {session?<button onClick={logoutUser} className=' border rounded-md pl-2 pr-2 bg-white cursor-pointer text-pink-600 border-pink-600 ' >Logout</button>:<Link  href={'/SignUp'} className=' border rounded-md pl-2 pr-2 bg-white cursor-pointer text-pink-600 border-pink-600 '>Signup</Link>} 
 
 
     </div>

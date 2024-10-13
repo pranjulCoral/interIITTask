@@ -1,3 +1,7 @@
+// deno-lint-ignore-file
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+/* eslint-disable @typescript-eslint/no-unused-expressions  */
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { NextRequest, NextResponse } from "next/server";

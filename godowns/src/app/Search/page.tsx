@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 "use client"
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState ,useEffect } from 'react'
 import {MdSearch} from 'react-icons/md'
 import axios from 'axios'
 import {url} from '../lib/constant.ts'
@@ -9,9 +9,18 @@ import {MyContext} from '../components/Context.jsx'
 import {ClipLoader} from 'react-spinners'
 import toast , {Toaster} from 'react-hot-toast'
 import Searched from '../components/Searched.tsx'
+import Login from '../Login/page.tsx'
 
 const Page = () => {
     const [query,setQuery] = useState("");
+    const {setSession ,session} = useContext(MyContext);
+    useEffect(()=>{
+    
+        const token = localStorage.getItem("token")?localStorage.getItem("token"):null;
+        setSession(token);
+      
+
+    },[]);
     const {searchResult , setSearchResult , searchLoading , setSearchLoading} = useContext(MyContext);
     const getSearchResults=async()=>{
          try{
@@ -31,7 +40,7 @@ const Page = () => {
          }
     }
   return (
-    <div>
+   <>{session? <div>
         <Toaster/>
         <div className='flex justify-center mt-4 '>
             <div className=' bg-white rounded-full'>
@@ -67,7 +76,9 @@ const Page = () => {
                 <ClipLoader size={20} color='black'/>
             </div>
         }
-    </div>
+    </div>:<Login/>
+}
+    </>
   )
 }
 

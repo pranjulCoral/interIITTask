@@ -1,3 +1,7 @@
+// deno-lint-ignore-file
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+/* eslint-disable @typescript-eslint/no-unused-expressions  */
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { NextRequest, NextResponse } from "next/server";
@@ -8,7 +12,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     try {
         const { username, email, password } = await req.json();
         if (!email || !password) {
-            return new Response(JSON.stringify("All fields are required"), {
+            return new Response(JSON.stringify({message:"All fields are required"}), {
                 headers: { "Content-type": "application/json" },
                 status: 400,
             });
@@ -26,7 +30,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
 
         if (!user) {
             return new Response(
-                JSON.stringify("User Doesn't Exist , Please Register"),
+                JSON.stringify({message:"User Doesn't Exist , Please Register"}),
                 {
                     headers: { "Content-type": "application/json" },
                     status: 400,
@@ -37,7 +41,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) {
-            return new Response(JSON.stringify("Wrong Password Entered"), {
+            return new Response(JSON.stringify({message:"Wrong Password Entered"}), {
                 headers: { "Content-type": "application/json" },
                 status: 403,
             });

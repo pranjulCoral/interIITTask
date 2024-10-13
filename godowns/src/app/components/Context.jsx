@@ -12,6 +12,7 @@ export const MyProvider = ({children})=>{
     const responsibilityView = useRef(null);
     const incentiveView = useRef(null);
     const contactView = useRef(null);
+    const [session,setSession] = useState(null);
     const [isSideBarOpen , setIsSideBarOpen] = useState(true);
   const [isOpenIndex , setIsOpenIndex] = useState(null);
   const [fetchedItem, setFetchedItem] = useState(null);
@@ -30,7 +31,7 @@ export const MyProvider = ({children})=>{
       
     const value = {
         isSideBarOpen,setIsSideBarOpen,homeView ,fetchedItem ,isLoading,setIsLoading, setFetchedItem, aboutView , whyCAView , responsibilityView , incentiveView , FAQView , contactView , isModalOpen , handleModalClose ,setIsModalOpen,isOpenIndex , setIsOpenIndex,
-        searchLoading, setSearchLoading , searchResult , setSearchResult
+        searchLoading, setSearchLoading , searchResult , setSearchResult , session ,setSession
 
     }
 
