@@ -40,7 +40,7 @@ const Page = () => {
             if (errors.name) toast.error(errors.name[0])
             if (errors.email) toast.error(errors.email[0])
             if (errors.password) toast.error(errors.password[0])
-            return
+           
         }
         try {
             setIsLoading(true);
