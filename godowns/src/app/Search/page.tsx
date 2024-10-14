@@ -40,7 +40,7 @@ const Page = () => {
          }
     }
   return (
-   <>{session? <div>
+   <>{session? <div className=' mb-12'>
         <Toaster/>
         <div className='flex justify-center mt-4 '>
             <div className=' bg-white rounded-full'>

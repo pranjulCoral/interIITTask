@@ -91,8 +91,23 @@ export default function SideBarModal() {
     };
     fetchGodown();
   }, []);
+  const {isSideBarOpen,setIsSideBarOpen} = useContext(MyContext);
+
+  const handleClick=()=>{
+    setIsSideBarOpen(false);
+    console.log(isSideBarOpen)
+    console.log("Hi")
+  }
+
   return (
-    <div className="bg-slate-800 h-screen overflow-y-scroll mb-2">
+    <div className={isSideBarOpen?"bg-slate-800 h-screen overflow-y-scroll mb-2 animate-slide-in-left":"bg-slate-800 h-screen overflow-y-scroll mb-2 animate-slide-in-right"}>
+      <div className=" flex justify-between text-white font-bold ">
+        <div className="text-xl ml-2">Contents</div>
+         <button onClick={handleClick} className="mr-2">&times;</button>
+      </div>
+            <div className="border border-b border-slate-500 mt-2" />
+
+
      {!isLoading? <div className="text-white  ">
         {godownData.map((item: any, index: any) => (
           <React.Fragment key={index}>
